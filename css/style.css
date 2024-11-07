@@ -1,0 +1,16 @@
+body {
+	font-family: "Times New Roman", Times, serif;
+	background-image: url(../img/cork.png);
+}
+
+#titolo {
+	background-image: url(../img/wall.png);
+}
+
+.list-cards {
+	width: 1000px;
+	margin: 0 auto;
+}
+img {
+	display: block;
+}
