@@ -28,20 +28,22 @@ fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 		photos.forEach((photo) => {
 			cardRow.innerHTML += `
 			<div class="col">
-				<div class="card">
+				<div class="card h-100">
+                    <div>
+					    <img class="pin" src="./img/pin.svg" alt="pin">
+				    </div>
 					<img
-						class="p-4"
+						class="p-3"
 						src= ${photo.url}
-						class="card-img-top"
+						
 						alt="img-prova"
 					/>
-					<div class="card-body">
-						<p class="card-text">
-							Some quick example text to build on the card title and make up the
-							bulk of the card's content.
+					<div>
+						<p class="card-text px-3 pb-3 fs-6 text-capitalize">
+							${photo.title}
 						</p>
 					</div>
 				</div>
-			</div>; `;
+			</div> `;
 		});
 	});

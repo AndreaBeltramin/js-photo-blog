@@ -1,5 +1,7 @@
 body {
-	font-family: "Times New Roman", Times, serif;
+	font-family: "Edu TAS Beginner", cursive;
+	font-optical-sizing: auto;
+	font-style: normal;
 	background-image: url(../img/cork.png);
 }
 
@@ -8,9 +10,32 @@ body {
 }
 
 .list-cards {
-	width: 1000px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
+
+.pin {
+	position: absolute;
+	width: 10%;
+	top: -3%;
+	left: 46%;
+}
+
 img {
-	display: block;
+	width: 100%;
+}
+
+h1 {
+	font-size: 5rem;
+}
+
+.card {
+	border-radius: 0%;
+	position: relative;
+}
+
+@media screen and (max-width: 1200px) {
+	.list-cards {
+		margin: 0 100px;
+	}
 }
