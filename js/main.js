@@ -18,10 +18,30 @@
 // rendi la pagina responsive, in modo che su mobile e tablet le foto
 //si dispongano man mano una sotto l’altra ed il titolo abbia una dimensione adeguata
 
+const cardRow = document.getElementById("card-row");
 const listUrlImage = [];
 
 fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 	.then((response) => response.json())
-	.then((data) => {
-		console.table(data);
+	.then((photos) => {
+		console.table(photos);
+		photos.forEach((photo) => {
+			cardRow.innerHTML += `
+			<div class="col">
+				<div class="card">
+					<img
+						class="p-4"
+						src= ${photo.url}
+						class="card-img-top"
+						alt="img-prova"
+					/>
+					<div class="card-body">
+						<p class="card-text">
+							Some quick example text to build on the card title and make up the
+							bulk of the card's content.
+						</p>
+					</div>
+				</div>
+			</div>; `;
+		});
 	});
