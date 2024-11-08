@@ -39,21 +39,21 @@
 // e la loro ombra aumenta, il tutto in manierà fluida.
 // Inoltre il mouse diventa un puntatore, per far capire all’utente che può cliccare
 
-//richiamo dal DOM la riga delle card dove aggiungerò le foto nelle card
+//richiamo dal DOM la riga delle card dove aggiungerò le foto dentro a delle card
 const cardRow = document.getElementById("card-row");
-const listUrlImage = [];
 
 //faccio richiesta all'api di mandarmi 6 foto
 fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 	.then((response) => response.json())
 	.then((photos) => {
+		//stampo le foto
 		console.table(photos);
 
 		//per ogni foto nell'array delle foto arrivate dall'api
 		photos.forEach((photo) => {
-			//creo l'html da inserire nella row del DOM per ogni foto
-			//inserisco l' URL della foto arrivata dall'api
-			//sotto l'immagine inserisco il titolo che arriva sempre dall'api
+			//creo l'html da inserire nella row del DOM
+			//inserendo nel src del tag img l'URL della foto arrivata dall'api
+			//e sotto l'immagine inserisco il titolo che arriva sempre dall'api
 			cardRow.innerHTML += `
 			<div class="col">
 				<div class="card h-100">
@@ -75,38 +75,38 @@ fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 		});
 
 		//richiamo dal DOM gli elementi che mi servono
+		const cards = document.querySelectorAll(".card");
+		const openedCard = document.getElementById("opened-card");
 		const overlayEl = document.getElementById("overlay-card");
 		const closeCardButton = document.getElementById("close-card-button");
-		const cardAperta = document.getElementById("card-aperta");
-		const cards = document.querySelectorAll(".card");
-		const img = document.getElementById("immagine-overlay");
+
 		console.log(cards);
 
 		//per ogni card presente nell'array Cards
 		cards.forEach((cardEl, index) => {
-			//al click di ogni card
+			// console.log(cards[index]);
+			// console.log(cardEl);
+
+			//creo un evento al click di ogni card
 			cardEl.addEventListener("click", function () {
-				//se l'indice della card presente nell'array cards corrisponde
-				//al singolo elemento card
-				if (cards[index] == cardEl) {
-					//aggiungo all'html della card aperta nell'overlay l'immagine
-					cardAperta.innerHTML = `
+				//genero l'html della card aperta
+				//prendo il tag img della foto corrispondente alla foto dell'api
+				openedCard.innerHTML = `
                     <img src= ${photos[index].url}
                         alt="img-prova"
                     />`;
-				}
 
 				//rimuovo la classe d-none all'overlay
 				overlayEl.classList.remove("d-none");
 
 				//mi stampo l'indice della card cliccata
-				console.log(index);
+				//console.log(index);
 			});
+		});
 
-			//al click del bottone di chiusura della card
-			closeCardButton.addEventListener("click", function () {
-				//aggiungo la classe d-none all'overlay
-				overlayEl.classList.add("d-none");
-			});
+		//al click del bottone di chiusura della card
+		closeCardButton.addEventListener("click", function () {
+			//aggiungo la classe d-none all'overlay
+			overlayEl.classList.add("d-none");
 		});
 	});

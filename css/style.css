@@ -69,6 +69,8 @@ h1 {
 	width: 500px;
 }
 
+/* RESPONSIVE */
+
 @media screen and (max-width: 768px) {
 	#card-aperta {
 		width: 400px;
