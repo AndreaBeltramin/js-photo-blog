@@ -1,24 +1,15 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* UTILS */
 body {
 	font-family: "Edu TAS Beginner", cursive;
 	font-optical-sizing: auto;
 	font-style: normal;
 	background-image: url(../img/cork.png);
-}
-
-#titolo {
-	background-image: url(../img/wall.png);
-}
-
-.list-cards {
-	max-width: 1000px;
-	margin: 0 auto;
-}
-
-.pin {
-	position: absolute;
-	width: 10%;
-	top: -3%;
-	left: 46%;
 }
 
 img {
@@ -29,13 +20,66 @@ h1 {
 	font-size: 5rem;
 }
 
+/* HEADER */
+#titolo {
+	background-image: url(../img/wall.png);
+}
+
+/* MAIN */
 .card {
 	border-radius: 0%;
 	position: relative;
 }
 
-@media screen and (max-width: 1200px) {
-	.list-cards {
-		margin: 0 100px;
+.pin {
+	position: absolute;
+	width: 10%;
+	top: -3%;
+	left: 46%;
+}
+
+.card:hover {
+	transform: rotate(35deg);
+	transform-origin: 60% 80%;
+	z-index: 1;
+}
+
+.card:hover .pin {
+	display: none;
+}
+
+#overlay-card {
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#card-aperta {
+	position: relative;
+	z-index: 3;
+	top: 50%;
+	margin: 0 auto;
+	width: 50%;
+	background: #ffffff;
+	padding: 5%;
+}
+
+#close-card {
+	position: relative;
+	top: 50%;
+}
+
+@media screen and (max-width: 575px) {
+	h1 {
+		font-size: 3rem;
+	}
+	#card-row {
+		padding: 0 100px;
 	}
 }
