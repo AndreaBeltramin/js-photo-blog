@@ -39,7 +39,7 @@ h1 {
 }
 
 .card:hover {
-	transform: rotate(35deg);
+	transform: rotate(10deg);
 	transform-origin: 60% 80%;
 	z-index: 1;
 }
@@ -49,30 +49,21 @@ h1 {
 }
 
 #overlay-card {
-	z-index: 2;
 	background: rgba(0, 0, 0, 0.5);
 	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0px;
-	left: 0px;
-	text-align: center;
-	margin: 0 auto;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 }
 
 #card-aperta {
-	position: relative;
-	z-index: 3;
-	top: 50%;
-	margin: 0 auto;
-	width: 50%;
-	background: #ffffff;
-	padding: 5%;
-}
-
-#close-card {
-	position: relative;
-	top: 50%;
+	width: 200px;
 }
 
 @media screen and (max-width: 575px) {

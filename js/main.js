@@ -46,4 +46,25 @@ fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 				</div>
 			</div> `;
 		});
+
+		const overlayEl = document.getElementById("overlay-card");
+		const closeCardButton = document.getElementById("close-card");
+		const cards = document.querySelectorAll(".card");
+		console.log(cards);
+
+		cards.forEach((cardEl) => {
+			cardEl.addEventListener("click", function () {
+				overlayEl.classList.remove("d-none");
+			});
+			closeCardButton.addEventListener("click", function () {
+				overlayEl.classList.add("d-none");
+			});
+		});
+
+		// const card = document.querySelector('.card')
+		//
+
+		// card.addEventListener(('click'), function(){
+		//     overlayEl.classList.remove('d-none');
+		// }
 	});
