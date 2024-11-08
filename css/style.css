@@ -29,6 +29,8 @@ h1 {
 .card {
 	border-radius: 0%;
 	position: relative;
+	cursor: pointer;
+	box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5);
 }
 
 .pin {
@@ -39,9 +41,9 @@ h1 {
 }
 
 .card:hover {
-	transform: rotate(10deg);
-	transform-origin: 60% 80%;
+	transform: scale(1.1) rotate(10deg);
 	z-index: 1;
+	box-shadow: 8px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .card:hover .pin {
@@ -49,6 +51,7 @@ h1 {
 }
 
 #overlay-card {
+	z-index: 2;
 	background: rgba(0, 0, 0, 0.5);
 	position: fixed;
 	top: 0;
@@ -66,11 +69,22 @@ h1 {
 	width: 500px;
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 768px) {
+	#card-aperta {
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 576px) {
 	h1 {
 		font-size: 3rem;
 	}
+
 	#card-row {
 		padding: 0 100px;
+	}
+
+	#card-aperta {
+		width: 300px;
 	}
 }
