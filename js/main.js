@@ -45,6 +45,7 @@ const cardRow = document.getElementById("card-row");
 //faccio richiesta all'api di mandarmi 6 foto
 fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 	.then((response) => response.json())
+	//codice da eseguire per fare qualcosa con la risposta
 	.then((photos) => {
 		//stampo le foto
 		console.table(photos);
@@ -109,4 +110,8 @@ fetch("https://jsonplaceholder.typicode.com/photos?_limit=6")
 			//aggiungo la classe d-none all'overlay
 			overlayEl.classList.add("d-none");
 		});
+	})
+	//scrivo il codice da eseguire in caso di errore
+	.catch((error) => {
+		console.error(error);
 	});
